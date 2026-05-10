@@ -1,4 +1,3 @@
-
 #from Employee_automation_test.Framework.global_login.login_page import LoginPage
 import os
 from selenium import webdriver
@@ -10,13 +9,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 def test_orangehrm_flow():
     #get the driver
     driver=name()
-    #getusername 
+    #getusername
     username=os.getenv("HRM_USERNAME", "Admin")
     #get password
     password=os.getenv("HRM_PASSWORD", "admin123")
     #create the base url
     base_url=os.getenv("HRM_URL","https://opensource-demo.orangehrmlive.com/")
-
     try:
         #create an object of the login page
         login=LoginPage(driver)
@@ -25,12 +23,11 @@ def test_orangehrm_flow():
         login.login(username,password)
         sidebar = Sidebar(driver)
         sidebar.toggle_sidebar()
-         
+
     finally:
         driver.quit()
 
 
-      
 
 def name():
     options = webdriver.ChromeOptions()
