@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -9,7 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from Framework.global_login.login_page import LoginPage
 from Framework.collapse_sidebar.collapse_sidebar import Sidebar
 
-
+load_dotenv()
 def create_driver():
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
@@ -28,8 +29,8 @@ def test_orangehrm_flow():
 
     driver = create_driver()
 
-    username = os.getenv("HRM_USERNAME","Admin")
-    password = os.getenv("HRM_PASSWORD","admin123")
+    username = os.getenv("HRM_USERNAME")
+    password = os.getenv("HRM_PASSWORD")
     base_url = os.getenv(
         "HRM_URL",
         "https://opensource-demo.orangehrmlive.com/"
