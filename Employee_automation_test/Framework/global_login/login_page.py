@@ -1,7 +1,7 @@
 #By: help us to interact with the  elements on the pages 
 from selenium.webdriver.common.by import By
 class LoginPage:
-    def __init__(self,driver):#instatiate a constructor
+    def __init__(self,driver):
         self.driver = driver
 
     def open(self,base_url):
