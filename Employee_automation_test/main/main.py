@@ -1,4 +1,5 @@
 import os
+import time
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -36,8 +37,10 @@ def test_orangehrm_flow():
 
     username = os.getenv("HRM_USERNAME")
     password = os.getenv("HRM_PASSWORD")
-    base_url  = os.getenv("HRM_URL",
-                          "https://opensource-demo.orangehrmlive.com/")
+    base_url = os.getenv(
+        "HRM_URL"
+        
+    )
 
     try:
         # ── 1. Login ──────────────────────────────────────────────────────
@@ -94,6 +97,7 @@ def test_orangehrm_flow():
         print("✔ Returned to Dashboard")
 
     finally:
+        time.sleep(10)
         driver.quit()
         print("Browser closed.")
 
