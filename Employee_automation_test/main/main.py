@@ -1,4 +1,5 @@
 import os
+import time
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -32,8 +33,8 @@ def test_orangehrm_flow():
     username = os.getenv("HRM_USERNAME")
     password = os.getenv("HRM_PASSWORD")
     base_url = os.getenv(
-        "HRM_URL",
-        "https://opensource-demo.orangehrmlive.com/"
+        "HRM_URL"
+        
     )
 
     try:
@@ -60,7 +61,7 @@ def test_orangehrm_flow():
         print("Sidebar toggle completed!")
 
     finally:
-        input("Press ENTER to close browser...")
+        time.sleep(10)
         driver.quit()
 
 
